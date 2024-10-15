@@ -1,22 +1,30 @@
+/**
+ * The Job class implements the Runnable interface and simulates a job that
+ * can be processed by a thread.
+ */
 public class Job implements Runnable {
     private int jobNumber;
 
-    // Constructor
+    /**
+     * Constructor to create a new Job instance.
+     * @param jobNumber The number assigned to this job.
+     */
     Job(int jobNumber) {
         this.jobNumber = jobNumber;
     }
 
-    // The run method where the job's work is performed
+    /**
+     * This method simulates the work of the job by having the thread
+     * sleep for a period.
+     */
     @Override
     public void run() {
-        // Emulate some work by sleeping for a period
         System.out.println("Job: " + jobNumber + " is being processed by thread: "
                            + Thread.currentThread().getName());
         try {
-            // Sleep for 1 second (1000 milliseconds)
-            Thread.sleep(1000);
+            Thread.sleep(1000);  // Simulate some work by sleeping for 1 second
         } catch (InterruptedException e) {
-            // No handling as example should not experience interruptions
+            // No handling required in this example
         }
         System.out.println("Job: " + jobNumber + " is ending in thread: "
                            + Thread.currentThread().getName());
